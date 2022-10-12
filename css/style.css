@@ -1,0 +1,100 @@
+body {
+  background-color: #e6dedd;
+  display: flex;
+  gap: 20px;
+  justify-content: space-evenly;
+}
+
+label {
+  grid-column: 1 / 2;
+}
+
+input {
+  grid-column: 3 / 4;
+}
+
+button {
+  background-color: #8f1d14;
+  border-radius: 5px;
+  border: 0;
+  color: white;
+  font-weight: bold;
+  width: 80px;
+  height: 25px;
+}
+
+.book {
+  background-color: #fff;
+  border-radius: 5px;
+  border: 10px solid #f89d13;
+  padding: 5px;
+  display: grid;
+  gap: 5px;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+}
+
+.book p {
+  grid-column: 1 / 3;
+  grid-row: 1 / 2;
+  
+}
+
+.book .read-button {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+}
+
+.book .remove-button {
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
+}
+
+.library {
+  background-color: #1b120f;
+  border-radius: 5px;
+  border: 20px solid #8f1d14;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 30%));
+  grid-template-rows: repeat(auto-fit, 130px);
+  padding: 50px;
+  width: 65vh;
+}
+
+.new-book-btn {
+  padding: 5px 10px;
+  width: 100px;
+}
+
+.new-book-form {
+  background-color: #fff;
+  border-radius: 5px;
+  border: 10px solid #f89d13;
+  display: grid;
+  gap: 0.5em;
+  grid-template-columns: 1fr 0.5em 1fr;
+  max-width: 260px;
+  padding: 5px;
+  
+  grid-template-areas: 
+  "titleLabel . titleInput"
+  "authorLabel . authorInput"
+  "pagesLabel . pagesInput"
+  "readLabel . readInput"
+  ". . submit";
+}
+
+.new-book-section {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.submit {
+  grid-area: submit;
+  margin: 10px 0;
+  width: 100px;
+  padding: 5px 10px;
+}
+
