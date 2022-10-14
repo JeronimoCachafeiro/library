@@ -3,26 +3,30 @@ const libraryDisplay = document.querySelector(".library");
 const newBookSection = document.querySelector(".new-book-section");
 const newBookButton = document.querySelector(".new-book-btn");
 
-function Book(title, author, pages, read) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.read = read;
+class Book {
+  
+  constructor(title, author, pages, read) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.read = read;
+  }
+
+  readStatus() {
+    return this.read === "true".toLowerCase() ? "already read." : "not read yet.";
+  }
+
+  info() {
+    return `${this.title} by ${this.author}, ${this.pages} pages, ${this.readStatus()}`;
+  }
+
+  toggleRead() {
+    this.read === "true" ? this.read = "false" : this.read = "true";
+    displayBooks();
+    console.log(this.read);
+  }
 }
 
-Book.prototype.readStatus = function () {
-  return this.read === "true".toLowerCase() ? "already read." : "not read yet.";
-};
-
-Book.prototype.info = function () {
-  return `${this.title} by ${this.author}, ${this.pages} pages, ${this.readStatus()}`;
-};
-
-Book.prototype.toggleRead = function () {
-  this.read === "true" ? this.read = "false" : this.read = "true";
-  displayBooks();
-  console.log(this.read);
-}
 function addBookToLibrary(title, author, pages, read) {
   const newBook = new Book(title, author, pages, read);
   myLibrary.push(newBook);
